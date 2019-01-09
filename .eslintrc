@@ -1,0 +1,19 @@
+{
+  "root": true,
+  "extends": [
+    "eslint:recommended"
+  ],
+  "env": {
+    "es6": true,
+    "node": true,
+    "commonjs": true,
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+    "rules": {
+    "no-console": ["warn"],
+    "no-extra-parens": ["off"],
+    "semi": [ 2, "always" ]
+  }
+}
