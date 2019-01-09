@@ -6,6 +6,11 @@
 $ yarn install
 ```
 
+db/data.json
+```sh
+＄ cp db/.data.json.sample db/data.json
+```
+
 ### comannd
 
 **build**
