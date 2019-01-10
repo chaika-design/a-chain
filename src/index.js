@@ -52,9 +52,11 @@ const generateNextBlock = (blockData) => {
   return new Block(nextIndex, prevBlock.hash, nextTimestamp, blockData, nextHash);
 };
 
-// TODO: get latest Block by BlockChane
+// get latest Block by BlockChane
 const getLatestBlock = () => {
-  return 'Block';
+  return blockchain[ blockchain.length - 1 ];
+};
+
 // get Block hash by Block data
 function calculateHashForBlock(block) {
   return calculateHash(block.index, block.previousHash, block.timestamp, block.data);
