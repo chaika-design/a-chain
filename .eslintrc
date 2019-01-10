@@ -9,9 +9,14 @@
     "commonjs": true,
   },
   "parserOptions": {
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaVersion": 2017 // async / awaite
   },
-    "rules": {
+  "globals": {
+    // use FetchAPI
+    "fetch": false
+  },
+  "rules": {
     "no-console": ["warn"],
     "no-extra-parens": ["off"],
     "semi": [ 2, "always" ]
