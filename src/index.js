@@ -55,7 +55,27 @@ const generateNextBlock = (blockData) => {
 // TODO: get latest Block by BlockChane
 const getLatestBlock = () => {
   return 'Block';
+// get Block hash by Block data
+function calculateHashForBlock(block) {
+  return calculateHash(block.index, block.previousHash, block.timestamp, block.data);
+}
+
+// check new Block
+const isValidNewBlock = (newBlock, prevBlock) => {
+  const newBlockHash = calculateHashForBlock(newBlock);
+  if(prevBlock.index +1 !== newBlock.index) {
+    console.error('invalid index');
+    return false;
+  } else if(prevBlock.hash !== newBlock.previousHash) {
+    console.log('invalid previous hash');
+    return false;
+  } else if(newBlockHash !== newBlock.hash) {
+    console.log(`invalid hash: ${newBlockHash} ${newBlock.hash}`);
+    return false;
+  }
+  return true;
 };
+console.log(isValidNewBlock); // TODO DELETE
 
 // load Blocks data
 init();
