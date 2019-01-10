@@ -17,6 +17,28 @@ class Block {
   }
 }
 
+const blockchain = [];
+
+const getGenesisBlocksisBlock = async () => {
+  try {
+    const res = await fetch(api, {method: 'GET'});
+    const data = res.json();
+    return data;
+  } catch(err) {
+    throw new Error(err);
+  }
+};
+
+const init = async () => {
+  try {
+    const blocks = await getGenesisBlocksisBlock();
+    blockchain.push(blocks);
+    console.log(blockchain);
+  } catch(err) {
+    console.error('Get Blocks ERROR', err);
+  }
+};
+
 // Create Block Hash
 const calculateHash = (index, prevHash, timestamp, data) => {
   return SHA256(index + prevHash + timestamp + data).toString();
@@ -34,3 +56,6 @@ const generateNextBlock = (blockData) => {
 const getLatestBlock = () => {
   return 'Block';
 };
+
+// load Blocks data
+init();
